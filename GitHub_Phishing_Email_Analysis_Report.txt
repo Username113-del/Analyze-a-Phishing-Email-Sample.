@@ -1,0 +1,103 @@
+```
+GitHub Phishing Email Analysis Report: Hacker Impersonation
+
+Repository: security-incident-reports
+Author: CyberSec Analyst
+Date: August 5, 2025
+Issue ID: INC-2025-08-002
+Status: Final
+
+Overview
+--------
+This report analyzes a phishing email impersonating GitHub, designed to appear as if sent by a hacker. The email aims to trick developers into authorizing a malicious OAuth app. The analysis identifies phishing characteristics for security training and incident response.
+
+Tools Used
+----------
+- Email Client: Raw email text (simulated based on GitHub phishing patterns).
+- Header Analyzer: MXToolbox (simulated header results).
+- Link Inspection: Manual URL verification (simulated hover).
+
+Sample Email Details
+--------------------
+The email, dated August 4, 2025, uses a hacker persona to mimic GitHub’s branding.
+
+Email Content:
+From: GitHub Security <security@github.com>
+Subject: URGENT: Your GitHub Account is Compromised!
+Date: August 4, 2025
+
+Yo, coder,
+
+Caught ya slippin’! Your GitHub account’s been flagged for suspicious activity. I’m part of the underground crew auditing GitHub’s security. Fix this NOW or lose your repos forever. Click below to secure your account with our new OAuth tool:
+
+[Secure Your Account](http://github-security.live/verify)
+
+Don’t sleep on this—24 hours before we lock you out!
+
+- DarkByte, GitHub’s Shadow Admin
+
+Email Headers (Sanitized):
+Received: from mail.darknet.io ([172.16.0.99]) by mail.github.com
+From: GitHub Security <security@github.com>
+Reply-To: admin@darknet.io
+Authentication-Results: spf=pass; dkim=pass; dmarc=fail
+
+Analysis Findings
+----------------
+1. Sender Address Spoofing
+   - Observation: From field uses security@github.com, but Reply-To is admin@darknet.io.
+   - Indicator: Spoofed sender redirects replies to a malicious domain.
+
+2. Email Header Discrepancies
+   - Observation: Received header shows mail.darknet.io origin, not GitHub. DMARC=fail detected.
+   - Indicator: Non-GitHub origin and DMARC failure confirm spoofing.
+
+3. Suspicious Links
+   - Observation: Link "Secure Your Account" points to http://github-security.live/verify, not github.com.
+   - Indicator: Fake domain aims to steal credentials or authorize malicious apps.
+
+4. Urgent or Threatening Language
+   - Observation: "Lose your repos forever" and "24 hours before we lock you out" create fear.
+   - Indicator: Scare tactics pressure quick action.
+
+5. Mismatched URLs
+   - Observation: Link text "Secure Your Account" resolves to github-security.live, not GitHub.
+   - Indicator: URL mismatch deceives users.
+
+6. Spelling and Grammar
+   - Observation: Informal hacker tone ("Yo, coder," "slippin’") with no errors.
+   - Indicator: Skilled phishing mimics credibility.
+
+7. Additional Phishing Traits
+   - Hacker Persona: "DarkByte, GitHub’s Shadow Admin" intimidates victims.
+   - Social Engineering: Claims of compromised account exploit trust.
+   - Generic Addressing: "Yo, coder" targets broad developer audience.
+
+Summary of Phishing Indicators
+-----------------------------
+- Spoofed Sender: security@github.com with Reply-To admin@darknet.io.
+- DMARC Failure: Headers show dmarc=fail.
+- Suspicious Link: github-security.live mimics GitHub’s domain.
+- Urgent Language: Threats of repo loss and 24-hour deadline.
+- Mismatched URLs: Link text and destination differ.
+- Hacker Persona: Fake alias adds intimidating tone.
+- Social Engineering: Exploits fear of account compromise.
+
+Recommendations
+---------------
+1. User Action: Avoid clicking links or sharing credentials. Report to support@github.com.
+2. Verification: Confirm GitHub communications via github.com.
+3. Training: Educate on hacker-style phishing and spoofed domains.
+4. Technical Measures: Strengthen DMARC policies and monitor domain mimicry.
+
+Conclusion
+----------
+The email uses a hacker persona, spoofed GitHub branding, and urgent threats to deceive developers. Its traits—DMARC failure, malicious links, and social engineering—match known GitHub phishing patterns. This report will be archived in the security-incident-reports repository for training and tracking.
+
+Next Steps
+----------
+- Upload to /docs/phishing/2025/ in security-incident-reports.
+- Share with security team for training updates.
+- Monitor for similar phishing attempts.
+
+```
